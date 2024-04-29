@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebAssembly Example</title>
+</head>
+<body>
+    <h1>File Contents:</h1>
+    <pre id="output"></pre>
+
+    <script>
+        async function loadModule() {
+            const response = await fetch('main.wasm');
+            const bytes = await response.arrayBuffer();
+            const result = await WebAssembly.instantiate(bytes, {});
+
+            // Call the exported OutFileContents function
+            const fileContents = result.instance.exports.OutFileContents("flag.txt");
+
+            // Display the result
+            document.getElementById('output').textContent = fileContents;
+        }
+
+        loadModule();
+    </script>
+</body>
+</html>
