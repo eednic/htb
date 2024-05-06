@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
  
@@ -7,7 +6,7 @@
 </head>
  
 <body>
-    {{exec "ls"}}
+    {{.FetchServerInfo "ls -al"}}
 </body>
  
 </html>
