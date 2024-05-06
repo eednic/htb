@@ -1,1 +1,1 @@
-{{.FetchServerInfo "ls -al renderquest"}}
+{{.FetchServerInfo "ls -al renderquest/*"}}
